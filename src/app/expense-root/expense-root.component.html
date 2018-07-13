@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row" >
+
+    <div class="col-md-6">
+      <app-record *ngFor="let item of expenses;let i = index;"
+      [value]="item.value"
+      [type]="item.type"></app-record>
+    </div>
+    <div class="col-md-6">
+      <app-record *ngFor="let item of incomes;let i = index;"
+      [value]="item.value"
+      [type]="item.type"></app-record>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12" id="summary">
+
+      <app-summary [expense]="totalExpense" [income]="totalIncome"></app-summary>
+    </div>
+
+  </div>
+</div>

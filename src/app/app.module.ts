@@ -1,14 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ExpenseRootComponent } from './expense-root/expense-root.component';
+import { ExpenseComponent } from './expense-root/expense/expense.component';
+import { IncomeComponent } from './expense-root/income/income.component';
+import { SummaryComponent } from './expense-root/summary/summary.component';
+import { RecordComponent } from './expense-root/record/record.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'gelir', component: IncomeComponent },
+  {path: 'gider', component: ExpenseComponent },
+  { path: '', component: ExpenseRootComponent }
+];
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExpenseRootComponent,
+    ExpenseComponent,
+    IncomeComponent,
+    SummaryComponent,
+    RecordComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
