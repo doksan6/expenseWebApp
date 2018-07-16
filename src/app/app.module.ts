@@ -9,6 +9,7 @@ import { SummaryComponent } from './expense-root/summary/summary.component';
 import { RecordComponent } from './expense-root/record/record.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'gelir', component: IncomeComponent },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

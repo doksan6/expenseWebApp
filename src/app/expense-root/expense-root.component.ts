@@ -10,22 +10,22 @@ import { ExpenseService } from '../services/expense.service';
 })
 export class ExpenseRootComponent implements OnInit {
 
-  constructor(private expenseService: ExpenseService) {
-    this.incomes = expenseService.getRecords('Gelir');
-    this.expenses = expenseService.getRecords('Gider');
-  }
-
-
   public records: Record[] = [];
   public incomes: Record[] = [];
   public expenses: Record[] = [];
 
 
-  ngOnInit() {
-    this.expenseService.recordsChanged.subscribe((r)=>{
-      this.expenses = this.expenseService.getRecords('Gider');
-    });
+  constructor(private expenseService: ExpenseService) {
+    this.incomes = expenseService.getRecords('Gelir');
+    this.expenses = expenseService.getRecords('Gider');
   }
 
+  ngOnInit() {
+    this.expenseService.getApiRecords();
 
+    this.expenseService.recordsChanged.subscribe((r) => {
+      this.expenses = this.expenseService.getRecords('Gider');
+      this.incomes = this.expenseService.getRecords('Gelir');
+    });
+  }
 }
